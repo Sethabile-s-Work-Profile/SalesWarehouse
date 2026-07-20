@@ -1,0 +1,237 @@
+Create DATABASE SalesDataWarehouse;
+Use SalesDataWarehouse;
+
+Create table Customers(
+ CustomerId int identity (1,1) primary key,
+ FirstName varchar (255) not null,
+ LastName varchar (255) not null,
+ Email varchar (255)not null,
+ City varchar (255) not null, 
+ SignupDate date not null
+);
+
+Create table Products (
+ProductId int identity (1,1) primary key,
+ProductName varchar (255) not null,
+Category varchar (255) not null,
+Price int	not null
+);
+Select * 
+from  Products
+Create table Orders(
+Orderid int primary key,
+CustomerId int 
+foreign key (CustomerId) references Customers (CustomerId),
+OrderDate date not null
+);
+
+Create Table OrderDetailId (
+OrderDetailId int primary key,
+OrderId int
+foreign key (Orderid) references Orders(Orderid),
+ProductId int
+foreign key (ProductId) references Products(ProductId),
+Quality int not null,
+UnitPrice float not null
+);
+
+SELECT * FROM Products;
+INSERT INTO Customers (FirstName, LastName, Email, City, SignupDate) VALUES
+('Liam','Smith','liam.smith@email.com','Johannesburg','2024-01-03'),
+('Olivia','Johnson','olivia.j@email.com','Cape Town','2024-01-05'),
+('Noah','Williams','noah.w@email.com','Durban','2024-01-07'),
+('Emma','Brown','emma.b@email.com','Pretoria','2024-01-09'),
+('Lucas','Jones','lucas.j@email.com','Johannesburg','2024-01-12'),
+('Ava','Garcia','ava.g@email.com','Polokwane','2024-01-15'),
+('Ethan','Miller','ethan.m@email.com','Cape Town','2024-01-18'),
+('Sophia','Davis','sophia.d@email.com','Durban','2024-01-21'),
+('James','Rodriguez','james.r@email.com','Pretoria','2024-01-25'),
+('Isabella','Martinez','isabella.m@email.com','Johannesburg','2024-01-28'),
+('Benjamin','Hernandez','ben.h@email.com','Cape Town','2024-02-02'),
+('Mia','Lopez','mia.l@email.com','Durban','2024-02-05'),
+('Elijah','Gonzalez','elijah.g@email.com','Pretoria','2024-02-08'),
+('Charlotte','Wilson','charlotte.w@email.com','Johannesburg','2024-02-12'),
+('Alexander','Anderson','alex.a@email.com','Cape Town','2024-02-15'),
+('Amelia','Thomas','amelia.t@email.com','Durban','2024-02-18'),
+('Daniel','Taylor','daniel.t@email.com','Pretoria','2024-02-22'),
+('Harper','Moore','harper.m@email.com','Johannesburg','2024-02-25'),
+('Matthew','Jackson','matt.j@email.com','Cape Town','2024-03-01'),
+('Evelyn','Martin','evelyn.m@email.com','Durban','2024-03-05'),
+('Michael','Lee','michael.l@email.com','Pretoria','2024-03-09'),
+('Abigail','Perez','abigail.p@email.com','Johannesburg','2024-03-12'),
+('David','Thompson','david.t@email.com','Cape Town','2024-03-16'),
+('Emily','White','emily.w@email.com','Durban','2024-03-20'),
+('Joseph','Harris','joseph.h@email.com','Pretoria','2024-03-24'),
+('Ella','Sanchez','ella.s@email.com','Johannesburg','2024-03-28'),
+('Samuel','Clark','samuel.c@email.com','Cape Town','2024-04-02'),
+('Scarlett','Ramirez','scarlett.r@email.com','Durban','2024-04-06'),
+('Sebastian','Lewis','seb.l@email.com','Pretoria','2024-04-10'),
+('Victoria','Robinson','victoria.r@email.com','Johannesburg','2024-04-14'),
+('Jack','Walker','jack.w@email.com','Cape Town','2024-04-18'),
+('Aria','Young','aria.y@email.com','Durban','2024-04-22'),
+('Owen','Allen','owen.a@email.com','Pretoria','2024-04-26'),
+('Grace','King','grace.k@email.com','Johannesburg','2024-04-30'),
+('Henry','Wright','henry.w@email.com','Cape Town','2024-05-04'),
+('Chloe','Scott','chloe.s@email.com','Durban','2024-05-08'),
+('Wyatt','Torres','wyatt.t@email.com','Pretoria','2024-05-12'),
+('Lily','Nguyen','lily.n@email.com','Johannesburg','2024-05-16'),
+('Luke','Hill','luke.h@email.com','Cape Town','2024-05-20'),
+('Zoey','Flores','zoey.f@email.com','Durban','2024-05-24'),
+('Gabriel','Green','gabriel.g@email.com','Pretoria','2024-05-28'),
+('Hannah','Adams','hannah.a@email.com','Johannesburg','2024-06-01'),
+('Anthony','Nelson','anthony.n@email.com','Cape Town','2024-06-05'),
+('Natalie','Baker','natalie.b@email.com','Durban','2024-06-09'),
+('Isaac','Hall','isaac.h@email.com','Pretoria','2024-06-13'),
+('Leah','Rivera','leah.r@email.com','Johannesburg','2024-06-17'),
+('Julian','Campbell','julian.c@email.com','Cape Town','2024-06-21'),
+('Aubrey','Mitchell','aubrey.m@email.com','Durban','2024-06-25'),
+('Aaron','Carter','aaron.c@email.com','Pretoria','2024-06-29'),
+('Addison','Roberts','addison.r@email.com','Johannesburg','2024-07-03'),
+('Christopher','Gomez','chris.g@email.com','Cape Town','2024-07-07'),
+('Layla','Phillips','layla.p@email.com','Durban','2024-07-11'),
+('Nathan','Evans','nathan.e@email.com','Pretoria','2024-07-15'),
+('Brooklyn','Turner','brooklyn.t@email.com','Johannesburg','2024-07-19'),
+('Andrew','Diaz','andrew.d@email.com','Cape Town','2024-07-23'),
+('Ellie','Parker','ellie.p@email.com','Durban','2024-07-27'),
+('Joshua','Cruz','joshua.c@email.com','Pretoria','2024-08-01'),
+('Avery','Edwards','avery.e@email.com','Johannesburg','2024-08-05'),
+('Ryan','Collins','ryan.c@email.com','Cape Town','2024-08-09'),
+('Sofia','Reyes','sofia.r@email.com','Durban','2024-08-13'),
+('Isaiah','Stewart','isaiah.s@email.com','Pretoria','2024-08-17'),
+('Camila','Morris','camila.m@email.com','Johannesburg','2024-08-21'),
+('Thomas','Morales','thomas.m@email.com','Cape Town','2024-08-25'),
+('Bella','Murphy','bella.m@email.com','Durban','2024-08-29'),
+('Charles','Cook','charles.c@email.com','Pretoria','2024-09-02'),
+('Madison','Rogers','madison.r@email.com','Johannesburg','2024-09-06'),
+('Josiah','Gutierrez','josiah.g@email.com','Cape Town','2024-09-10'),
+('Penelope','Ortiz','penelope.o@email.com','Durban','2024-09-14'),
+('Christian','Morgan','christian.m@email.com','Pretoria','2024-09-18'),
+('Riley','Cooper','riley.c@email.com','Johannesburg','2024-09-22'),
+('Jonathan','Peterson','jonathan.p@email.com','Cape Town','2024-09-26'),
+('Stella','Bailey','stella.b@email.com','Durban','2024-09-30');
+
+
+INSERT INTO Products (ProductName, Category, Price) VALUES
+('Laptop 14 Pro','Electronics',18000),
+('Laptop 16 Ultra','Electronics',25000),
+('Wireless Mouse','Electronics',400),
+('Mechanical Keyboard','Electronics',1500),
+('Gaming Monitor 27','Electronics',6000),
+('Office Chair Ergonomic','Furniture',3200),
+('Standing Desk Pro','Furniture',7500),
+('USB-C Docking Station','Electronics',1800),
+('Noise Cancelling Headphones','Electronics',3500),
+('Bluetooth Speaker','Electronics',1200),
+('Smartphone X','Electronics',15000),
+('Tablet Plus','Electronics',9500),
+('External SSD 1TB','Electronics',2200),
+('Printer LaserJet','Electronics',4800),
+('Webcam 4K','Electronics',1400),
+('Router AX6000','Electronics',2600),
+('Smart Watch Series 5','Electronics',5200),
+('Desk Lamp LED','Furniture',450),
+('Office Desk Wooden','Furniture',3800),
+('Filing Cabinet 4 Drawer','Furniture',2900),
+('Notebook A4 Pack','Stationery',120),
+('Ballpoint Pen Pack','Stationery',80),
+('Marker Set','Stationery',150),
+('Calculator Scientific','Stationery',350),
+('Backpack Laptop','Accessories',900),
+('Power Bank 20000mAh','Electronics',700),
+('Microphone USB','Electronics',2000),
+('Graphic Tablet','Electronics',5500),
+('Projector HD','Electronics',8500),
+('Conference Speakerphone','Electronics',4200),
+('Whiteboard Magnetic','Furniture',1600),
+('Paper Shredder','Electronics',2100),
+('Ethernet Cable 5m','Electronics',120),
+('Surge Protector','Electronics',300),
+('HDMI Cable','Electronics',180),
+('Office Sofa','Furniture',9000),
+('Reception Desk','Furniture',12000),
+('Scanner Flatbed','Electronics',3100),
+('Laptop Stand','Accessories',650),
+('Cooling Pad','Accessories',500);
+
+INSERT INTO Orders (OrderId, CustomerId, OrderDate) VALUES
+(1,1,'2024-03-01'),
+(2,2,'2024-03-02'),
+(3,3,'2024-03-03'),
+(4,4,'2024-03-04'),
+(5,5,'2024-03-05'),
+(6,6,'2024-03-06'),
+(7,7,'2024-03-07'),
+(8,8,'2024-03-08'),
+(9,9,'2024-03-09'),
+(10,10,'2024-03-10'),
+(11,1,'2024-03-11'),
+(12,2,'2024-03-12'),
+(13,3,'2024-03-13'),
+(14,4,'2024-03-14'),
+(15,5,'2024-03-15'),
+(16,6,'2024-03-16'),
+(17,7,'2024-03-17'),
+(18,8,'2024-03-18'),
+(19,9,'2024-03-19'),
+(20,10,'2024-03-20');
+
+INSERT INTO OrderDetailId (OrderDetailId, OrderId, ProductId, Quality, UnitPrice) VALUES
+(1,1,1,1,15000),
+(2,1,2,2,350),
+
+(3,2,3,1,1200),
+(4,2,4,1,2500),
+
+(5,3,5,1,5000),
+(6,3,6,1,3200),
+
+(7,4,7,2,600),
+(8,4,8,1,2800),
+
+(9,5,9,1,1800),
+(10,5,10,2,450),
+
+(11,6,1,1,15000),
+(12,6,3,1,1200),
+
+(13,7,2,2,350),
+(14,7,4,1,2500),
+
+(15,8,5,1,5000),
+(16,8,6,1,3200),
+
+(17,9,7,3,600),
+(18,9,8,1,2800),
+
+(19,10,9,2,1800),
+(20,10,10,1,450),
+
+(21,11,1,1,15000),
+(22,11,2,1,350),
+
+(23,12,3,2,1200),
+(24,12,4,1,2500),
+
+(25,13,5,1,5000),
+(26,13,6,1,3200),
+
+(27,14,7,1,600),
+(28,14,8,2,2800),
+
+(29,15,9,1,1800),
+(30,15,10,2,450),
+
+(31,16,1,1,15000),
+(32,16,3,1,1200),
+
+(33,17,2,1,350),
+(34,17,4,1,2500),
+
+(35,18,5,1,5000),
+(36,18,6,1,3200),
+
+(37,19,7,2,600),
+(38,19,8,1,2800),
+
+(39,20,9,1,1800),
+(40,20,10,1,450);
